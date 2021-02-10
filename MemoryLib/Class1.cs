@@ -6,6 +6,7 @@ namespace MemoryLib
 {
     public class Memory
     {
+        public const string kernel_lib = "kernel32.dll";
         [Flags]
         public enum ProcessAccessFlags : uint
         {
@@ -24,7 +25,7 @@ namespace MemoryLib
             Synchronize = 0x00100000
         }
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         public static extern IntPtr OpenProcess(
                  ProcessAccessFlags processAccess,
                  bool bInheritHandle,
@@ -34,7 +35,7 @@ namespace MemoryLib
             return OpenProcess(flags, false, proc.Id);
         }
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
@@ -42,7 +43,7 @@ namespace MemoryLib
             int dwSize,
             out IntPtr lpNumberOfBytesRead);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
@@ -50,7 +51,7 @@ namespace MemoryLib
             int dwSize,
             out IntPtr lpNumberOfBytesRead);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
@@ -58,7 +59,7 @@ namespace MemoryLib
             int dwSize,
             out IntPtr lpNumberOfBytesRead);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         public static extern bool WriteProcessMemory(
                   IntPtr hProcess,
                   IntPtr lpBaseAddress,
@@ -66,7 +67,7 @@ namespace MemoryLib
                   Int32 nSize,
                   out IntPtr lpNumberOfBytesWritten);
 
-        [DllImport("kernel32.dll", SetLastError = true)]
+        [DllImport(kernel_lib, SetLastError = true)]
         public static extern bool WriteProcessMemory(
           IntPtr hProcess,
           IntPtr lpBaseAddress,
