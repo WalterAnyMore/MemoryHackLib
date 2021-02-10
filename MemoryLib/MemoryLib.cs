@@ -36,7 +36,7 @@ namespace MemoryLib
         }
 
         [DllImport(kernel_lib, SetLastError = true)]
-        static extern bool ReadProcessMemory(
+        public static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
             [Out] byte[] lpBuffer,
@@ -44,7 +44,7 @@ namespace MemoryLib
             out IntPtr lpNumberOfBytesRead);
 
         [DllImport(kernel_lib, SetLastError = true)]
-        static extern bool ReadProcessMemory(
+        public static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
             [Out, MarshalAs(UnmanagedType.AsAny)] object lpBuffer,
@@ -52,7 +52,7 @@ namespace MemoryLib
             out IntPtr lpNumberOfBytesRead);
 
         [DllImport(kernel_lib, SetLastError = true)]
-        static extern bool ReadProcessMemory(
+        public static extern bool ReadProcessMemory(
             IntPtr hProcess,
             IntPtr lpBaseAddress,
             IntPtr lpBuffer,
